@@ -40,4 +40,12 @@ class ApplicationController < Sinatra::Base
     end
   end
 
+  get '/plants' do
+    erb :'plants/new'
+  end
+
+  post '/plants' do
+    binding.pry
+  end
+
 end
