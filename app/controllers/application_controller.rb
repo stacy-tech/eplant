@@ -31,4 +31,13 @@ class ApplicationController < Sinatra::Base
     erb :'users/login'
   end
 
+  post '/login' do
+    if user.authenticate(params["email"])
+      session["user_id"] = user.id
+      redirect '/plants'
+    else
+      redirect '/login'
+    end
+  end
+
 end
