@@ -1,4 +1,3 @@
-require './config/environment'
 
 class ApplicationController < Sinatra::Base
 
@@ -7,45 +6,13 @@ class ApplicationController < Sinatra::Base
     set :views, 'app/views'
     enable :sessions
     set :session_secret, ENV['SESSION_SECRET']
+    register Sinatra::Flash
   end
 
   get "/" do
     erb :welcome
   end
 
-  get '/signup' do
-    erb :'users/signup'
-  end
-
-  post '/signup' do
-    user = User.create(params["user"])
-    if user.valid?
-      session["user_id"] = user.id
-      redirect '/login'
-    else
-      redirect '/signup'
-    end
-  end
-
-  get '/login' do
-    erb :'users/login'
-  end
-
-  post '/login' do
-    if user.authenticate(params["email"])
-      session["user_id"] = user.id
-      redirect '/plants'
-    else
-      redirect '/login'
-    end
-  end
-
-  get '/plants' do
-    erb :'plants/new'
-  end
-
-  post '/plants' do
-    binding.pry
-  end
+  
 
 end
