@@ -8,10 +8,8 @@ class UsersController < ApplicationController
     user = User.create(params)
     if user.valid?
       flash[:success]="sucessfully created a user"
-      # session["user_id"] = user.id
       redirect '/login'
     else
-      # binding.pry
       flash[:error]=user.errors.full_messages.to_sentence
       redirect '/signup'
     end

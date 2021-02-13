@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     user = User.find_by_email(params["email"])
     if user && user.authenticate(params["password"])
       session["user_id"] = user.id
-      flash[:success] = "sucessfully logined in"
+      flash[:success] = "sucessfully logged in"
       redirect '/plants'
     else
       flash[:error] = "invalid credentials"
