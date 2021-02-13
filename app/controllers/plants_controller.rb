@@ -1,7 +1,9 @@
 class PlantsController < ApplicationController
 
   get '/plants' do
-    erb :'plants/new.html'
+    redirect_if_not_logged_in
+    binding.pry
+    erb :'/plants/index.html'
   end
 
   post '/plants' do
