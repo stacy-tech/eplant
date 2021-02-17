@@ -3,13 +3,18 @@ require 'open-uri'
 require_relative "../../config/environment"
 
 class Scraper
-    URL = "https://bloomscape.com/shop/plants/indoor-plant/"
+    url = 'https://www.houseplant411.com/houseplant'
+    html = open(url)
+    doc = Nokogiri::HTML(html)
 
-    def self.scrape_plants
-        doc = Nokogiri::HTML(open(URL))
-        plants_main = doc.css(".shop_container")
-        puts plants_main
+    plants = doc.css('resNumbers').css('.resultsInd').css('a')
+
+    plants.each do |plant|
+        plant.css('a')
+        binding.pry
     end
 end
 
-Scraper.scrape_plants
+scrape = Scraper.new
+
+
