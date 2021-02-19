@@ -11,7 +11,7 @@ class Scraper
         plant_tiles = doc.css("ul li a img")
         plant_tiles.each do |plant|
             
-            binding.pry
+           
             hash = {
                 name: plant.attr("title")
             }
