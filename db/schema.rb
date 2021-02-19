@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 2021_02_08_063155) do
   create_table "plants", force: :cascade do |t|
     t.string "name"
     t.string "type"
-    t.string "bloomscape"
   end
 
   create_table "user_plants", force: :cascade do |t|

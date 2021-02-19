@@ -11,12 +11,13 @@ class Scraper
         plant_tiles = doc.css("ul li a img")
         plant_tiles.each do |plant|
             
-           
             hash = {
                 name: plant.attr("title")
             }
             Plant.new(hash)
+            
         end
+    
     end
 
     
