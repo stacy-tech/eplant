@@ -10,11 +10,11 @@ class Scraper
         doc = Nokogiri::HTML(html) 
         plant_tiles = doc.css("ul li a img")
         plant_tiles.each do |plant|
-            
+           
             hash = {
-                name: plant.attr("title")
+                name: plant.attr("alt")
             }
-            Plant.new(hash)
+            Plant.create(hash)
             
         end
     

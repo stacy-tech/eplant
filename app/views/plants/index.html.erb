@@ -1,7 +1,11 @@
 <h1>Plants</h1>
-
-
-
-
+<% if @plants.size > 0 %>
+    <ul class="eplants"> 
+        <% @plants.each do |plant|%>
+            <li class="plant_item"> <a href="/plants/<%=plant.id%>"><%=plant.name%></a></li>
+        <%end%>
+            
+    </ul>
+<%end%>
 
 
