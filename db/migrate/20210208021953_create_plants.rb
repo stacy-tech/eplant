@@ -2,7 +2,7 @@ class CreatePlants < ActiveRecord::Migration[5.2]
   def change
     create_table :plants do |t|
       t.string :name
-      t.binary :photo
+      t.string :type
     end
   end
 end

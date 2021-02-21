@@ -13,16 +13,12 @@ class Scraper
             
            
             hash = {
-                name: plant.attr("alt")
+                name: plant.attr("alt"),
+                # type: plant.attr("src")
             }
-            Plant.create(hash)
-            
+            Plant.create(hash)  
         end
-    
     end
-
-    
-
 end
 
 Scraper.new.scrape_page
